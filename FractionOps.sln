@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26124.0
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29609.76
 MinimumVisualStudioVersion = 15.0.26124.0
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "fractionops", "fractionops\fractionops.csproj", "{102D5DD6-DD3A-4DAE-8EB3-6FF6C8DFBD0B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "fractionops", "fractionops\fractionops.csproj", "{102D5DD6-DD3A-4DAE-8EB3-6FF6C8DFBD0B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "fractionops.test", "fractionops.test\fractionops.test.csproj", "{782C9F60-655F-4DC7-A46B-1B704028A75A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,9 +15,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{102D5DD6-DD3A-4DAE-8EB3-6FF6C8DFBD0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -30,5 +29,23 @@ Global
 		{102D5DD6-DD3A-4DAE-8EB3-6FF6C8DFBD0B}.Release|x64.Build.0 = Release|Any CPU
 		{102D5DD6-DD3A-4DAE-8EB3-6FF6C8DFBD0B}.Release|x86.ActiveCfg = Release|Any CPU
 		{102D5DD6-DD3A-4DAE-8EB3-6FF6C8DFBD0B}.Release|x86.Build.0 = Release|Any CPU
+		{782C9F60-655F-4DC7-A46B-1B704028A75A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{782C9F60-655F-4DC7-A46B-1B704028A75A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{782C9F60-655F-4DC7-A46B-1B704028A75A}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{782C9F60-655F-4DC7-A46B-1B704028A75A}.Debug|x64.Build.0 = Debug|Any CPU
+		{782C9F60-655F-4DC7-A46B-1B704028A75A}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{782C9F60-655F-4DC7-A46B-1B704028A75A}.Debug|x86.Build.0 = Debug|Any CPU
+		{782C9F60-655F-4DC7-A46B-1B704028A75A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{782C9F60-655F-4DC7-A46B-1B704028A75A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{782C9F60-655F-4DC7-A46B-1B704028A75A}.Release|x64.ActiveCfg = Release|Any CPU
+		{782C9F60-655F-4DC7-A46B-1B704028A75A}.Release|x64.Build.0 = Release|Any CPU
+		{782C9F60-655F-4DC7-A46B-1B704028A75A}.Release|x86.ActiveCfg = Release|Any CPU
+		{782C9F60-655F-4DC7-A46B-1B704028A75A}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D5706F64-28E2-4226-A329-EA17470D66FF}
 	EndGlobalSection
 EndGlobal
