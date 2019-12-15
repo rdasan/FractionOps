@@ -3,7 +3,7 @@ using Xunit;
 
 namespace fractionops.test
 {
-    public class UnitTest1
+    public class FractionTests
     {
         [Fact]
         public void Test1()
