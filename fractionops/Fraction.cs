@@ -1,4 +1,6 @@
-﻿namespace fractionops
+﻿using System;
+
+namespace fractionops
 {
     public class Fraction 
     {
@@ -25,6 +27,22 @@
 
         public override string ToString()
         {
+            if (Denominator == 1)
+                return $"{Numerator}";
+
+            long numeratorAbs = Math.Abs(Numerator);
+            long denominatorAbs = Math.Abs(Denominator);
+
+            if (numeratorAbs > denominatorAbs) //Improper Fraction
+            {
+                //Convert to Mixed Fraction
+                long wholeNumPart = numeratorAbs / denominatorAbs;
+                long remainder = numeratorAbs % denominatorAbs;
+                if (Numerator < 0)
+                    wholeNumPart *= -1;
+                return $"{wholeNumPart}_{remainder}/{Denominator}";
+            }
+
             return $"{Numerator}/{Denominator}";
         }
 

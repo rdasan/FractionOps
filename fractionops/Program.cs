@@ -10,7 +10,7 @@ namespace fractionops
             AppDomain currentDomain = AppDomain.CurrentDomain;
             currentDomain.UnhandledException += HandleException; //Adding a global Exception handler so that we don't have to pepper our code with try catches
 
-            Console.Write("Enter the artimatic expression to evaluate: ");
+            Console.Write("Enter the arthimatic expression to evaluate: ");
             var input = Console.ReadLine();
 
             try
