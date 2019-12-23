@@ -20,12 +20,11 @@ This Application takes operations on fractions as an input and produce a fractio
 
 ### Example run:
 
-? 1/2 / 3/4
-= 2/3
+Input: 1/2 / 3/4
+Result: 2/3
 
-
-? 2_3/8 + 9/8
-= 3_1/2
+Input: 2_3/8 + 9/8
+Result: 3_1/2
 
 ### What's supported:
 
