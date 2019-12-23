@@ -4,6 +4,19 @@ namespace fractionops
 {
     public static class FractionExtensions
     {
+        public static Fraction ToFraction(this string fractionText, Fraction fraction)
+        {
+            string[] parts = fractionText.Split('/');
+
+            if (long.TryParse(parts[0], out long numerator) && long.TryParse(parts[1], out long denominator))
+            {
+                fraction.Numerator = numerator;
+                fraction.Denominator = denominator;
+                return fraction?.Reduce();
+            }
+            throw new ArgumentException("Invalid Fraction String");
+        }
+
         public static Fraction Reduce(this Fraction fraction)
         {
             if (fraction.Denominator == 0)
@@ -13,8 +26,6 @@ namespace fractionops
 
             if (fraction.Denominator == 1)
                 return fraction;
-
- 
 
             if (fraction.Denominator < 0)
             {

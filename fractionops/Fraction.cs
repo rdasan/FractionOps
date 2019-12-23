@@ -10,13 +10,7 @@ namespace fractionops
 
         public Fraction(string fractionText)
         {
-            var parts = fractionText.Split('/');
-            if (long.TryParse(parts[0], out long numerator))
-                Numerator = numerator;
-            if (long.TryParse(parts[1], out long denominator))
-                Denominator = denominator;
-
-            this.Reduce();
+            fractionText.ToFraction(this);
         }
 
         public Fraction(long numerator, long denominator)
@@ -70,5 +64,7 @@ namespace fractionops
         {
             return new Fraction(-fraction.Numerator, fraction.Denominator);
         }
+
+
     }
 }
