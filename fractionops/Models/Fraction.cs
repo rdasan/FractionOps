@@ -26,6 +26,12 @@ namespace fractionops.Models
             Reduce();
         }
 
+        public Fraction(long number)
+        {
+            Numerator = number;
+            Denominator = 1;
+        }
+
         public static Fraction operator +(Fraction left, Fraction right)
         {
             var gcdDenom = MathUtil.GCD(left.Denominator, right.Denominator);
@@ -41,6 +47,9 @@ namespace fractionops.Models
 
         private void Reduce()
         {
+            if(Denominator == 1)
+                return;
+
             if (Denominator < 0)
             {
                 Numerator = -Numerator;
