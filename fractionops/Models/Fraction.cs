@@ -16,10 +16,30 @@ namespace fractionops.Models
                 Numerator = numerator;
             if (long.TryParse(parts[1], out long denominator))
                 Denominator = denominator;
-            ReduceFraction();
+            Reduce();
         }
 
-        private void ReduceFraction()
+        public Fraction(long numerator, long denominator)
+        {
+            Numerator = numerator;
+            Denominator = denominator;
+            Reduce();
+        }
+
+        public static Fraction operator +(Fraction left, Fraction right)
+        {
+            var gcdDenom = MathUtil.GCD(left.Denominator, right.Denominator);
+            checked
+            {
+                var numerator = left.Numerator * (right.Denominator / gcdDenom) +
+                                right.Numerator * (left.Denominator / gcdDenom);
+
+                var denominator = left.Denominator * (right.Denominator / gcdDenom);
+                return new Fraction(numerator, denominator);
+            }
+        }
+
+        private void Reduce()
         {
             if (Denominator < 0)
             {
@@ -27,7 +47,13 @@ namespace fractionops.Models
                 Denominator = -Denominator;
             }
 
+            var gcd = MathUtil.GCD(Numerator, Denominator);
 
+            if(gcd == 1)
+                return;
+
+            Numerator /= gcd;
+            Denominator /= gcd;
         }
     }
 }
