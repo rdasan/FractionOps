@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Data;
+using System.Text.RegularExpressions;
 
 namespace fractionops
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {
@@ -17,12 +18,12 @@ namespace fractionops
            {
                 Console.Write("\nEnter the arithmatic expression to evaluate: ");
                 var input = Console.ReadLine();
-                if(input.ToLower() == "x")
+                if(input?.ToLower() == "x")
                     break;
 
                 try
                 {
-                    Fraction result = Evaluate(input);
+                    var result = Evaluate(input);
                     Console.WriteLine($"Result: {result}");
                 }
                 catch (Exception e)
@@ -34,9 +35,9 @@ namespace fractionops
             Console.Read();
         }
 
-        public static Fraction Evaluate(string input)
+        public static string Evaluate(string input)
         {
-            var exprParts = input.Split(' ');
+            var exprParts = Regex.Split(input, @"\s+"); //To split by 1 or more spaces
 
             if (exprParts.Length != 3)
             {
@@ -46,19 +47,27 @@ namespace fractionops
             var left = new Fraction(exprParts[0]);
             var right = new Fraction(exprParts[2]);
 
+            Fraction result;
+
             switch (exprParts[1])
             {
                 case "+":
-                    return left + right;
+                    result = left + right;
+                    break;
                 case "-":
-                    return left - right;
+                    result = left - right;
+                    break;
                 case "*":
-                    return left * right;
+                    result = left * right;
+                    break;
                 case "/":
-                    return left / right;
+                    result = left / right;
+                    break;
                 default:
                     throw new ArgumentException("Unrecoginzed operator");
             }
+
+            return result?.ToString();
         }
 
         private static void HandleException(object sender, UnhandledExceptionEventArgs e)

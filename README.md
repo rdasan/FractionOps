@@ -26,13 +26,14 @@ This Application takes operations on fractions as an input and produce a fractio
 - Single operation on 2 operands
 - 4 operations (add, subtract, multiply, divide)
 - Negative numbers
-- Basic Exception Handling (Eg: DivideByZero Error, Aruthmatic Overflow Exception etc)
+- Basic Exception Handling (Eg: DivideByZero Error, Arithmatic Overflow Exception etc)
 - Global Exception Handling for unhandled exceptions if thrown.
 
 ### What's not supported:
 
 - Multi operand operations
 - Decimals
+- Braces, Brackets, Square Brackets
 
 
 
