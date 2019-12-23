@@ -4,7 +4,7 @@ using System.Text;
 
 namespace fractionops.Models
 {
-    public class Fraction
+    public class Fraction 
     {
         public long Numerator { get; set; }
         public long Denominator { get; set; }
@@ -43,6 +43,16 @@ namespace fractionops.Models
                 var denominator = left.Denominator * (right.Denominator / gcdDenom);
                 return new Fraction(numerator, denominator);
             }
+        }
+
+        public static Fraction operator -(Fraction left, Fraction right)
+        {
+            return left + -right;
+        }
+
+        public static Fraction operator -(Fraction fraction)
+        {
+            return new Fraction(-fraction.Numerator, fraction.Denominator);
         }
 
         private void Reduce()
