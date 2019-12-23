@@ -1,5 +1,4 @@
 using FluentAssertions;
-using fractionops.Models;
 using Xunit;
 
 namespace fractionops.test

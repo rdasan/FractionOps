@@ -1,6 +1,5 @@
 using System;
 using FluentAssertions;
-using fractionops.Models;
 using Xunit;
 
 namespace fractionops.test
@@ -12,6 +11,12 @@ namespace fractionops.test
         {
             Action action = () => new Fraction(2,0);
             action.Should().Throw<DivideByZeroException>();
+        }
+
+        [Fact]
+        public void ArithmaticOverFlowTest()
+        {
+            
         }
     }
 }

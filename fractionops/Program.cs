@@ -13,15 +13,9 @@ namespace fractionops
         private static void HandleException(object sender, UnhandledExceptionEventArgs e)
         {
             var exception = (Exception)e.ExceptionObject;
-            if (exception != null)
-            {
-                Console.WriteLine($"FractionOps Exception: {exception}");
-            }
-            else
-            {
-                Console.WriteLine("Unknown Exception Occurred. Exiting Program");
-            }
-                
+            Console.WriteLine(exception != null
+                ? $"FractionOps Exception: {exception}"
+                : "Unknown Exception Occurred. Exiting Program");
         }
     }
 }

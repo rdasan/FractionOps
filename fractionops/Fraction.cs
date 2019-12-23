@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
+using Microsoft.VisualBasic.CompilerServices;
 
-namespace fractionops.Models
+namespace fractionops
 {
     public class Fraction 
     {
@@ -17,14 +16,14 @@ namespace fractionops.Models
             if (long.TryParse(parts[1], out long denominator))
                 Denominator = denominator;
 
-            Reduce();
+            this.Reduce();
         }
 
         public Fraction(long numerator, long denominator)
         {
             Numerator = numerator;
             Denominator = denominator;
-            Reduce();
+            this.Reduce();
         }
 
         public Fraction(long number)
@@ -35,9 +34,9 @@ namespace fractionops.Models
 
         public static Fraction operator +(Fraction left, Fraction right)
         {
-            var gcdDenom = MathUtil.GCD(left.Denominator, right.Denominator);
             checked
             {
+                var gcdDenom = MathUtil.GCD(left.Denominator, right.Denominator);
                 var numerator = left.Numerator * (right.Denominator / gcdDenom) +
                                 right.Numerator * (left.Denominator / gcdDenom);
 
@@ -51,34 +50,22 @@ namespace fractionops.Models
             return left + -right;
         }
 
+        public static Fraction operator *(Fraction left, Fraction right)
+        {
+            checked
+            {
+                var numerator = left.Numerator * right.Numerator;
+                var denominator = left.Denominator * right.Denominator;
+
+                return new Fraction(numerator, denominator);
+            }
+        }
+
+        
+
         public static Fraction operator -(Fraction fraction)
         {
             return new Fraction(-fraction.Numerator, fraction.Denominator);
-        }
-
-        private void Reduce()
-        {
-            if (Denominator == 0)
-            {
-                throw new DivideByZeroException("Denominator cannot be zero");
-            }
-
-            if (Denominator == 1)
-                return;
-
-            if (Denominator < 0)
-            {
-                Numerator = -Numerator;
-                Denominator = -Denominator;
-            }
-
-            var gcd = MathUtil.GCD(Numerator, Denominator);
-
-            if(gcd == 1)
-                return;
-
-            Numerator /= gcd;
-            Denominator /= gcd;
         }
     }
 }
