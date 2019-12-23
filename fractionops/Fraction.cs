@@ -1,7 +1,4 @@
-﻿using System;
-using Microsoft.VisualBasic.CompilerServices;
-
-namespace fractionops
+﻿namespace fractionops
 {
     public class Fraction 
     {
@@ -24,6 +21,11 @@ namespace fractionops
         {
             Numerator = number;
             Denominator = 1;
+        }
+
+        public override string ToString()
+        {
+            return $"{Numerator}/{Denominator}";
         }
 
         public static Fraction operator +(Fraction left, Fraction right)
