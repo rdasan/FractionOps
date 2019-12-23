@@ -10,28 +10,37 @@ namespace fractionops
             AppDomain currentDomain = AppDomain.CurrentDomain;
             currentDomain.UnhandledException += HandleException; //Adding a global Exception handler so that we don't have to pepper our code with try catches
 
-            Console.Write("Enter the arthimatic expression to evaluate: ");
-            var input = Console.ReadLine();
+            Console.WriteLine("Please Enter Fractions in the format wholeNum_numerator/denominator. Eg: 3_1/4");
+            Console.WriteLine("Please 'X' to Exit\n");
 
-            try
-            {
-                Fraction result = Evaluate(input);
-                Console.WriteLine($"Result: {result}");
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-            }
+           while (true)
+           {
+                Console.Write("\nEnter the arithmatic expression to evaluate: ");
+                var input = Console.ReadLine();
+                if(input.ToLower() == "x")
+                    break;
 
+                try
+                {
+                    Fraction result = Evaluate(input);
+                    Console.WriteLine($"Result: {result}");
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine($"Invalid Input: {e.Message}");
+                }
+            }
+            Console.WriteLine("Exiting Program...");
             Console.Read();
         }
 
         public static Fraction Evaluate(string input)
         {
             var exprParts = input.Split(' ');
+
             if (exprParts.Length != 3)
             {
-                throw new ArgumentException("Missing parts of the arithmantic Expression");
+                throw new ArgumentException("Missing parts of the arithmatic Expression");
             }
 
             var left = new Fraction(exprParts[0]);
