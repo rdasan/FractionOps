@@ -16,6 +16,7 @@ namespace fractionops.Models
                 Numerator = numerator;
             if (long.TryParse(parts[1], out long denominator))
                 Denominator = denominator;
+
             Reduce();
         }
 
@@ -57,7 +58,12 @@ namespace fractionops.Models
 
         private void Reduce()
         {
-            if(Denominator == 1)
+            if (Denominator == 0)
+            {
+                throw new DivideByZeroException("Denominator cannot be zero");
+            }
+
+            if (Denominator == 1)
                 return;
 
             if (Denominator < 0)
