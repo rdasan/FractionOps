@@ -61,7 +61,10 @@ namespace fractionops
             }
         }
 
-        
+        public static Fraction operator /(Fraction left, Fraction right)
+        {
+            return left * new Fraction(right.Denominator, right.Numerator);
+        }
 
         public static Fraction operator -(Fraction fraction)
         {
