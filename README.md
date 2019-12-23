@@ -2,6 +2,12 @@
 ---
 
 This a .Net Core 3.1 Console App for performing the basic Arithmatic operations on Fractions.
+
+The .sln has 2 projects:
+
+1. fractionops - Main App 
+2. fractionops.tests - Unit Test project
+
 All the different mathematical operations and string conversions are thoroughly **Unit Tested** using **XUnit.Net**.
 
 This Application takes operations on fractions as an input and produce a fractional result.
